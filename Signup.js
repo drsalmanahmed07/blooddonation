@@ -10,7 +10,7 @@ import City from "react-native-vector-icons/FontAwesome5";
 import Addr from "react-native-vector-icons/MaterialCommunityIcons";
 import Pass from "react-native-vector-icons/MaterialCommunityIcons"
 
-export default function Signup({ navigation }) {
+export default function Signup(props) {
 
   const [submitted, SetSubmitted] = useState(false);
   const [name, SetName] = useState('');
@@ -22,12 +22,13 @@ export default function Signup({ navigation }) {
 
   const onPressHandler = () => {
 
-    if (name.length == 0) {
+    if (name.length == 1) {
       ToastAndroid.showWithGravity(
         'The Name field is required',
         ToastAndroid.LONG,
         ToastAndroid.BOTTOM,
-      )
+      );
+      props.navigation.navigate("Donors")
     }
 
     if (password.length == 0) {

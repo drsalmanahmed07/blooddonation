@@ -3,8 +3,6 @@ import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ToastAndroi
 import React, { useState } from "react";
 import Icon from "react-native-vector-icons/AntDesign";
 import Pass from "react-native-vector-icons/MaterialCommunityIcons"
-
-
 import Signup from './Signup';
 
 // const Stack = createStackNavigator();
