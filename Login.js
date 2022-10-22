@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ToastAndroid } from 'react-native';
 import React, { useState } from "react";
+import Icon from "react-native-vector-icons/AntDesign";
+import Pass from "react-native-vector-icons/MaterialCommunityIcons"
 
 
 import Signup from './Signup';
@@ -12,10 +14,10 @@ export default function Login(props) {
 
   const [name, SetName] = useState('');
   const [submitted, SetSubmitted] = useState(false);
-  const[password, SetPassword] = useState(false);
+  const [password, SetPassword] = useState(false);
   const onPressHandler = () => {
-    const{navigate} = props.navigation;
-       if (name.length == 1) {
+    const { navigate } = props.navigation;
+    if (name.length == 1) {
       SetSubmitted(!submitted);
       props.navigation.navigate('Signup');
     } else {
@@ -46,9 +48,9 @@ export default function Login(props) {
       )
     }
 
-    if(password.length == 8){
+    if (password.length == 8) {
       SetPassword(!password)
-    } else{
+    } else {
       ToastAndroid.showWithGravity(
         'Your password is too short',
         ToastAndroid.SHORT,
@@ -56,7 +58,7 @@ export default function Login(props) {
       )
     }
 
-    if(name.length==0 && password.length==0){
+    if (name.length == 0 && password.length == 0) {
       ToastAndroid.showWithGravity(
         'Fields can not be empty',
         ToastAndroid.LONG,
@@ -64,7 +66,7 @@ export default function Login(props) {
       )
     }
 
-    if(name.length!=0 && password.length==0){
+    if (name.length != 0 && password.length == 0) {
       ToastAndroid.showWithGravity(
         'Password is Required',
         ToastAndroid.LONG,
@@ -72,7 +74,7 @@ export default function Login(props) {
       )
     }
 
-    if(name.length<11){
+    if (name.length < 11) {
       ToastAndroid.showWithGravity(
         'Your number must consist of 11 characters',
         ToastAndroid.LONG,
@@ -98,30 +100,40 @@ export default function Login(props) {
 
       <View style={styles.txtinputview}>
         {/* <Text>2</Text>  This is the View where Only text Input is placed*/}
-        <TextInput
-          style={styles.input}
-          // onChangeText={(value) => setName(value)}
+        <View style ={styles.iconflex}>
+        <Icon style = {styles.iconic}name = "user"  size = {35} color = "black" />
+          <TextInput
+            style={styles.input}
+            // onChangeText={(value) => setName(value)}
+            placeholder=" Enter Cell No."
+            onChangeText={(value) => SetName(value)}
+            keyboardType="numeric"
+            maxLength={11}
+          />
+        </View>
 
-          placeholder="Enter Cell No."
-          onChangeText={(value) => SetName(value)}
-          keyboardType="numeric"
-          maxLength={11}
-        />
+
         {/* <Text> Your Cell Number is : {name}</Text> */}
 
+        <View style = {styles.iconflex}>
+        <Pass style = {styles.iconic}name = "security" size = {32} color = "black"/>
         <TextInput
           style={styles.input}
           // onChangeText={onChangeNumber}
           // value={number}
+
           placeholder="Enter Password"
           keyboardType="default"
           onChangeText={(value) => SetPassword(value)}
           maxLength={8}
           secureTextEntry
         />
+        </View>
+        
 
         <TouchableOpacity style={styles.opacityforgot}>
           <Text style={styles.txtcolor}>Forgot Password?</Text>
+
         </TouchableOpacity>
 
       </View>
@@ -155,22 +167,33 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     justifyContent: 'center',
   },
-  buttons:{
-    backgroundColor:'red',
-    width:200,
-    margin:8,
-    height:50,
-    borderRadius:20,
-    alignItems:"center",
-    justifyContent:"center",
-    marginBottom:10
+  iconic:{
+    marginTop: 5
+   
   },
-  btntxtcolor:{
-    color:"white",
-    alignItems:"center",
-    justifyContent:"center",
-    fontSize:20,
-    fontWeight:"bold"
+  iconflex:
+  {
+    flex:1,
+    flexDirection:"row",
+    margin:10,
+    marginTop:20
+  },
+  buttons: {
+    backgroundColor: 'red',
+    width: 200,
+    margin: 8,
+    height: 50,
+    borderRadius: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 10
+  },
+  btntxtcolor: {
+    color: "white",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: 20,
+    fontWeight: "bold"
   },
   iconview: {
     flex: 1.2,
@@ -183,7 +206,8 @@ const styles = StyleSheet.create({
     flex: 1.5,
     backgroundColor: '#fff',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginRight:35
   },
 
   btnview: {
@@ -205,10 +229,11 @@ const styles = StyleSheet.create({
     color: "#555",
     width: 200,
     alignItems: 'center',
-    margin: 10,
+    marginTop: 5,
+    marginLeft:10,
     justifyContent: 'center',
     borderRadius: 8,
-    height: 30,
+    height: 35,
     borderWidth: 1,
     textAlign: 'center'
   },
@@ -216,11 +241,11 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     // color:"#ff0000",
     alignItems: "center",
-    marginLeft:200,
-    marginTop:30,
-    width:140,
-    height:30,
+    marginLeft: 200,
+    marginTop: 30,
+    width: 140,
+    height: 30,
     justifyContent: 'center',
-    borderRadius:8,
+    borderRadius: 8,
   }
 });
