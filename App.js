@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer'; //Drawer Navigator
 import Login from "./Login";
 import Signup from "./Signup";
 import Donors from "./Donors";
 const Stack = createStackNavigator();
-const Drawer = createDrawerNavigator()
+const Drawer = createDrawerNavigator() //Drawer navigator
 
 export default function App(props) {
   return (
