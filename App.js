@@ -2,12 +2,18 @@
 import React, { useState } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer'; //Drawer Navigator
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { DrawerContent } from "./DrawerContent";
 import Login from "./Login";
 import Signup from "./Signup";
 import Donors from "./Donors";
+import BloodRequests from "./BloodRequests";
+import Requestblood from "./Requestblood";
+import Camps from "./Camps";
+import Support from "./Support";
+import Settings from "./Settings"
 const Stack = createStackNavigator();
-const Drawer = createDrawerNavigator() //Drawer navigator
+const Drawer = createDrawerNavigator()
 
 export default function App(props) {
   return (
@@ -36,7 +42,7 @@ export default function App(props) {
 
       </Stack.Navigator> */}
 
-      <Drawer.Navigator
+      <Drawer.Navigator drawerContent={props => <DrawerContent{...props} />}
       // screenOptions={{
       //   header: () => null
       // }}
@@ -58,6 +64,30 @@ export default function App(props) {
           component={Donors}
         />
 
+        <Drawer.Screen
+          name="Request A Blood"
+          component={Requestblood}
+        />
+
+        <Drawer.Screen
+          name="Blood Requests"
+          component={BloodRequests}
+        />
+
+        <Drawer.Screen
+          name="Camps"
+          component={Camps}
+        />
+
+        <Drawer.Screen
+          name="Support"
+          component={Support}
+        />
+
+        <Drawer.Screen
+          name="Settings"
+          component={Settings}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   )
