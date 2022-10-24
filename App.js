@@ -5,8 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { DrawerContent } from "./DrawerContent";
 import Login from "./Login";
+import Donors from "./Donors"
 import Signup from "./Signup";
-import Donors from "./Donors";
 import BloodRequests from "./BloodRequests";
 import Requestblood from "./Requestblood";
 import Camps from "./Camps";
@@ -48,10 +48,23 @@ export default function App(props) {
       // }}
       >
         <Drawer.Screen
+          name="Donors"
+          component={Donors}
+          
+        options={{
+          headerTintColor: 'white',
+          headerStyle: {
+            backgroundColor: 'red',
+         }
+         }}
+        />
+
+        <Drawer.Screen
           name="Login"
           component={Login}
         // options={{
         //   header: () => null
+        // backgroundColor:"red"
         // }}
         />
         <Drawer.Screen
@@ -59,10 +72,10 @@ export default function App(props) {
           component={Signup}
         />
 
-        <Drawer.Screen
+        {/* <Drawer.Screen
           name="Donors"
           component={Donors}
-        />
+        /> */}
 
         <Drawer.Screen
           name="Request A Blood"

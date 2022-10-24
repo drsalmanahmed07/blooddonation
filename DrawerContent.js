@@ -17,13 +17,13 @@ import react from "react";
 export function DrawerContent(props) {
 
     const [isDarkTheme, setIsDarkTheme] = react.useState(false)
-    const toggleTheme =() =>{
+    const toggleTheme = () => {
         setIsDarkTheme(!isDarkTheme)
-    } 
+    }
     return (
 
         <View style={{ flex: 1 }}>
-            <DrawerContentScrollView>
+            <DrawerContentScrollView >
                 <View style={styles.drawerContent} >
 
                     <View style={styles.userInfoSection}>
@@ -64,8 +64,19 @@ export function DrawerContent(props) {
                                     size={size}
                                 />
                             )}
-                            label="Home"
+                            label="Login"
                             onPress={() => { props.navigation.navigate("Login") }}
+                        />
+                        <DrawerItem
+                            icon={({ color, size }) => (
+                                <Icon
+                                    name="home-outline"
+                                    color={color}
+                                    size={size}
+                                />
+                            )}
+                            label="Donors"
+                            onPress={() => { props.navigation.navigate("Donors") }}
                         />
 
                         <DrawerItem
@@ -77,7 +88,7 @@ export function DrawerContent(props) {
                                 />
                             )}
                             label="Request a Blood"
-                            onPress={() => {props.navigation.navigate("Request A Blood")}}
+                            onPress={() => { props.navigation.navigate("Request A Blood") }}
                         />
 
                         <DrawerItem
@@ -130,11 +141,11 @@ export function DrawerContent(props) {
                     </Drawer.Section>
 
                     <Drawer.Section title="Preferences">
-                        <TouchableRipple onPress={() => {toggleTheme()}}>
+                        <TouchableRipple onPress={() => { toggleTheme() }}>
                             <View style={styles.preference}>
                                 <Text>Dark Theme</Text>
                                 <View pointerEvents="none">
-                                    <Switch value = {isDarkTheme}/>
+                                    <Switch value={isDarkTheme} />
                                 </View>
                             </View>
                         </TouchableRipple>
@@ -206,5 +217,6 @@ const styles = StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 16,
     },
+
 });
 
