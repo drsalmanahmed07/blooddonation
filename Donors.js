@@ -42,6 +42,68 @@ export default function Donors({ navigation }) {
 
 
     ];
+
+
+    const imageData = [
+        {
+            key: 1,
+            image: require('./assets/jack.png'),
+            title: 'Jack Frost',
+            number: '0302-2222323',
+            locations:'Lahore',
+            bloodgrp:"A +ive"
+
+        },
+        {
+            key: 2,
+            image: require('./assets/sandman.jpg'),
+            title: 'Sand Man',
+            number: '0302-2222323',
+            locations: 'Lahore',
+            bloodgrp:"B +ive"
+        },
+        {
+            key: 3,
+            image: require('./assets/jinx.jpg'),
+            title: 'Violet - Vi',
+            number: '0302-2222323',
+            locations: 'Lahore',
+            bloodgrp:"AB +ive"
+        },
+        {
+            key: 4,
+            image: require('./assets/jix.jpg'),
+            title: 'Jinx',
+            number: '0302-2222323',
+            locations: 'Lahore',
+            bloodgrp:"B -ive"
+        },
+        {
+            key: 5,
+            image: require('./assets/jack.png'),
+            title: 'Jack',
+            number: '0302-2222323',
+            locations: 'Lahore',
+            bloodgrp:"AB -ive"
+        },
+        {
+            key: 6,
+            image: require('./assets/sandman.jpg'),
+            title: 'Sand Man',
+            number: '0302-2222323',
+            locations: 'Lahore',
+            bloodgrp:"O +ive"
+        },
+        {
+            key: 7,
+            image: require('./assets/jinx.jpg'),
+            title: 'VI',
+            number: '0302-2222323',
+            locations: 'Lahore',
+            bloodgrp:"O -ive"
+        },
+
+    ];
     return (
         <View style={styles.container}>
 
@@ -62,6 +124,39 @@ export default function Donors({ navigation }) {
                     showsHorizontalScrollIndicator={false}
                 />
             </View>
+            <View style={styles.picview}>
+                <FlatList data={imageData}
+                    keyExtractor={item => item.key}
+                    renderItem={({ item }) => (
+                        <View style={styles.imageflex}>
+                            {/* <View style={styles.renderitem}> */}
+                            <View style={styles.imagebox}>
+                                <Image style={styles.image} source={item.image}></Image>
+                            </View>
+
+
+                            <View style={styles.bakra} >
+                                <View style={styles.imgtext} >
+                                    <Text style = {styles.name}>{item.title}</Text>
+                                </View>
+                                <View style={styles.imgtext} >
+                                    <Text>{item.number}</Text>
+                                </View>
+                                <View style={styles.imgtext} >
+                                    <Text>{item.locations}</Text>
+                                </View>
+                            </View>
+
+                            <View style={styles.imgtexts} >
+                                <Text style ={styles.blodgrp}>{item.bloodgrp}</Text>
+                            </View>
+                            {/* </View> */}
+                        </View>
+                    )}
+
+                    showsVerticalScrollIndicator={false}
+                />
+            </View>
             <View style={styles.view3}>
                 <Text>Hello this is View 3</Text>
             </View>
@@ -79,18 +174,68 @@ const styles = StyleSheet.create({
         alignItems: "stretch",
         justifyContent: 'flex-start',
     },
+    blodgrp:{
+        color:'red',
+        fontWeight:'bold',
+        fontSize:15
+    },
+    bakra:{
+        flex:1,
+        flexDirection:'column',
+
+    },
+    imgtext: {
+        // backgroundColor: 'red',
+        flex: 0.6,
+        // alignItems:'center',
+        marginLeft:20,
+        justifyContent:'center'
+
+    },
+
+    imgtexts: {
+        backgroundColor: 'white',
+        flex: 0.4,
+        alignItems:'center',
+        justifyContent:'center'
+
+    },
+    imagebox: {
+        flex: 0.58
+
+    },
+    image: {
+        height: 100,
+        width: 100,
+        borderRadius:50
+
+    },
+    name:{
+        color : 'black',
+        fontWeight:"bold",
+        fontSize:18
+    },
+    imageflex: {
+        // backgroundColor: 'black',
+        marginTop: 8,
+        padding:2,
+    
+        flex: 1,
+        flexDirection: 'row',
+
+    },
     view1: {
         backgroundColor: "red",
-        flex: 1
+        flex: 1.2
     },
 
     view2: {
         // backgroundColor: "green",
-        flex: 5
+        flex: 1
     },
     view3: {
         backgroundColor: "blue",
-        flex: 2
+        flex: 0.8
     },
     item: {
         padding: 20,
@@ -102,11 +247,13 @@ const styles = StyleSheet.create({
         color: 'white',
         backgroundColor: 'red',
         marginTop: 10,
-        marginRight:10,
-        padding:8,
-        borderRadius:10
-
-    
+        marginRight: 10,
+        padding: 8,
+        borderRadius: 10
+    },
+    picview: {
+        flex: 10,
+        // backgroundColor: 'green'
     },
     opacity: {
         flex: 1,
