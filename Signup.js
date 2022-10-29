@@ -179,7 +179,7 @@ export default function Signup(props) {
           />
         </View>
         <View style={styles.iconflex}>
-          <Addr style={styles.iconic} name="security" size={32} color="black" />
+          <Pass style={styles.iconic} name="security" size={32} color="black" />
           <TextInput
             style={styles.input}
             // onChangeText={(value) => setName(value)}

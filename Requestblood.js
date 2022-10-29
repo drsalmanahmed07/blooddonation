@@ -42,7 +42,47 @@ export default function Requestblood({ navigation }) {
                     placeholder=" Your Address Here"
                     // onChangeText={(value) => SetName(value)}
                     keyboardType="default"
-                    maxLength={5}
+                    maxLength={50}
+                />
+                <Text style={styles.heading}> Number:</Text>
+                {/* <Picker style = {styles.picker}>
+                <Picker.Item label = "A +ive" value = "A Positive"/>
+                </Picker>
+                 */}
+                <TextInput
+                    style={styles.input}
+                    // onChangeText={(value) => setName(value)}
+                    placeholder=" Your Number Here"
+                    // onChangeText={(value) => SetName(value)}
+                    keyboardType="default"
+                    maxLength={50}
+                />
+
+                <Text style={styles.heading}> Required date:</Text>
+                {/* <Picker style = {styles.picker}>
+                <Picker.Item label = "A +ive" value = "A Positive"/>
+                </Picker>
+                 */}
+                <TextInput
+                    style={styles.input}
+                    // onChangeText={(value) => setName(value)}
+                    placeholder=" dd/mm//yyyy"
+                    // onChangeText={(value) => SetName(value)}
+                    keyboardType="default"
+                    maxLength={50}
+                />
+                <Text style={styles.heading}> Units Required:</Text>
+                {/* <Picker style = {styles.picker}>
+                <Picker.Item label = "A +ive" value = "A Positive"/>
+                </Picker>
+                 */}
+                <TextInput
+                    style={styles.input}
+                    // onChangeText={(value) => setName(value)}
+                    placeholder=" Enter Units here"
+                    // onChangeText={(value) => SetName(value)}
+                    keyboardType="default"
+                    maxLength={50}
                 />
                 <Text style={styles.heading}>Description * :</Text>
                 {/* <Picker style = {styles.picker}>
@@ -88,7 +128,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'red',
         width: 200,
         margin: 8,
-        marginTop:25,
+        marginTop: 25,
         height: 50,
         borderRadius: 20,
         alignItems: "center",
@@ -116,7 +156,7 @@ const styles = StyleSheet.create({
         borderWidth: 5
     },
     view1: {
-        flex: 1,
+        flex: 1.5,
         // backgroundColor: 'red',
         alignItems: 'center',
         justifyContent: 'center'
@@ -124,7 +164,7 @@ const styles = StyleSheet.create({
     },
 
     view2: {
-        flex: 1.5,
+        flex: 4.5,
         // backgroundColor: 'yellow',
         // alignItems: 'center',
         // justifyContent: 'center'
@@ -132,11 +172,11 @@ const styles = StyleSheet.create({
     },
 
     view3: {
-        flex: 1,
+        flex: 0.8,
         // backgroundColor: 'green',
         alignItems: 'center',
         // justifyContent: 'center',
-      
+
 
     },
     tinyLogo: {

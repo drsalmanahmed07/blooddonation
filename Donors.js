@@ -50,8 +50,8 @@ export default function Donors({ navigation }) {
             image: require('./assets/jack.png'),
             title: 'Jack Frost',
             number: '0302-2222323',
-            locations:'Lahore',
-            bloodgrp:"A +ive"
+            locations: 'Lahore',
+            bloodgrp: "A +ive"
 
         },
         {
@@ -60,7 +60,7 @@ export default function Donors({ navigation }) {
             title: 'Sand Man',
             number: '0302-2222323',
             locations: 'Lahore',
-            bloodgrp:"B +ive"
+            bloodgrp: "B +ive"
         },
         {
             key: 3,
@@ -68,7 +68,7 @@ export default function Donors({ navigation }) {
             title: 'Violet - Vi',
             number: '0302-2222323',
             locations: 'Lahore',
-            bloodgrp:"AB +ive"
+            bloodgrp: "AB +ive"
         },
         {
             key: 4,
@@ -76,7 +76,7 @@ export default function Donors({ navigation }) {
             title: 'Jinx',
             number: '0302-2222323',
             locations: 'Lahore',
-            bloodgrp:"B -ive"
+            bloodgrp: "B -ive"
         },
         {
             key: 5,
@@ -84,7 +84,7 @@ export default function Donors({ navigation }) {
             title: 'Jack',
             number: '0302-2222323',
             locations: 'Lahore',
-            bloodgrp:"AB -ive"
+            bloodgrp: "AB -ive"
         },
         {
             key: 6,
@@ -92,7 +92,7 @@ export default function Donors({ navigation }) {
             title: 'Sand Man',
             number: '0302-2222323',
             locations: 'Lahore',
-            bloodgrp:"O +ive"
+            bloodgrp: "O +ive"
         },
         {
             key: 7,
@@ -100,7 +100,7 @@ export default function Donors({ navigation }) {
             title: 'VI',
             number: '0302-2222323',
             locations: 'Lahore',
-            bloodgrp:"O -ive"
+            bloodgrp: "O -ive"
         },
 
     ];
@@ -137,7 +137,7 @@ export default function Donors({ navigation }) {
 
                             <View style={styles.bakra} >
                                 <View style={styles.imgtext} >
-                                    <Text style = {styles.name}>{item.title}</Text>
+                                    <Text style={styles.name}>{item.title}</Text>
                                 </View>
                                 <View style={styles.imgtext} >
                                     <Text>{item.number}</Text>
@@ -148,7 +148,7 @@ export default function Donors({ navigation }) {
                             </View>
 
                             <View style={styles.imgtexts} >
-                                <Text style ={styles.blodgrp}>{item.bloodgrp}</Text>
+                                <Text style={styles.blodgrp}>{item.bloodgrp}</Text>
                             </View>
                             {/* </View> */}
                         </View>
@@ -158,7 +158,9 @@ export default function Donors({ navigation }) {
                 />
             </View>
             <View style={styles.view3}>
-                <Text>Hello this is View 3</Text>
+                <TouchableOpacity style={styles.buttons}>
+                    <Text style={styles.btntxtcolor}>Become a Donor</Text>
+                </TouchableOpacity>
             </View>
 
         </View>
@@ -174,30 +176,48 @@ const styles = StyleSheet.create({
         alignItems: "stretch",
         justifyContent: 'flex-start',
     },
-    blodgrp:{
-        color:'red',
-        fontWeight:'bold',
-        fontSize:15
+    buttons: {
+        backgroundColor: 'red',
+        width: 180,
+        margin: 8,
+        height: 30,
+        borderRadius: 12,
+        alignItems: "center",
+        justifyContent: "center",
+        marginBottom: 10,
+    
     },
-    bakra:{
-        flex:1,
-        flexDirection:'column',
+    btntxtcolor: {
+        color: "white",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 20,
+        fontWeight: "bold"
+    },
+    blodgrp: {
+        color: 'red',
+        fontWeight: 'bold',
+        fontSize: 15
+    },
+    bakra: {
+        flex: 1,
+        flexDirection: 'column',
 
     },
     imgtext: {
         // backgroundColor: 'red',
         flex: 0.6,
         // alignItems:'center',
-        marginLeft:20,
-        justifyContent:'center'
+        marginLeft: 20,
+        justifyContent: 'center'
 
     },
 
     imgtexts: {
         backgroundColor: 'white',
         flex: 0.4,
-        alignItems:'center',
-        justifyContent:'center'
+        alignItems: 'center',
+        justifyContent: 'center'
 
     },
     imagebox: {
@@ -207,19 +227,19 @@ const styles = StyleSheet.create({
     image: {
         height: 100,
         width: 100,
-        borderRadius:50
+        borderRadius: 50
 
     },
-    name:{
-        color : 'black',
-        fontWeight:"bold",
-        fontSize:18
+    name: {
+        color: 'black',
+        fontWeight: "bold",
+        fontSize: 18
     },
     imageflex: {
         // backgroundColor: 'black',
         marginTop: 8,
-        padding:2,
-    
+        padding: 2,
+
         flex: 1,
         flexDirection: 'row',
 
@@ -234,8 +254,10 @@ const styles = StyleSheet.create({
         flex: 1
     },
     view3: {
-        backgroundColor: "blue",
-        flex: 0.8
+        // backgroundColor: "blue",
+        flex: 0.8,
+        justifyContent:'center',
+        alignItems:'center'
     },
     item: {
         padding: 20,
@@ -257,7 +279,8 @@ const styles = StyleSheet.create({
     },
     opacity: {
         flex: 1,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        backgroundColor: 'rgba(52, 52, 52, alpha)'
 
     }
 });
