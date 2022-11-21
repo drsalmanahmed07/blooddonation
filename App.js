@@ -49,17 +49,6 @@ export default function App(props) {
       //   header: () => null
       // }}
       >
-        <Drawer.Screen
-          name="Donors"
-          component={Donors}
-
-          options={{
-            headerTintColor: 'white',
-            headerStyle: {
-              backgroundColor: 'red',
-            }
-          }}
-        />
 
         <Drawer.Screen
           name="Login"
@@ -75,6 +64,21 @@ export default function App(props) {
             }
           }}
         />
+
+
+        <Drawer.Screen
+          name="Donors"
+          component={Donors}
+
+          options={{
+            headerTintColor: 'white',
+            headerStyle: {
+              backgroundColor: 'red',
+            }
+          }}
+        />
+
+
         <Drawer.Screen
           name="Signup"
           component={Signup}

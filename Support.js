@@ -10,43 +10,43 @@ export default function Support({ navigation }) {
     const buttonArray = [
         {
             key: 1,
-            title: 'Question 1:',
-            description: 'Description'
+            title: 'Who can donate blood?',
+            description: 'Any healthy individual can donate blood. Before taking blood, some questions related to your health will be asked to make sure that you can donate blood.'
         },
         {
             key: 2,
-            title: 'Question 2:',
-            description: 'Description'
+            title: ' Can I donate blood if I had jaundice previously?',
+            description: 'No, if you have a history of jaundice in the past, you need to be screened for hepatitis before donating blood.'
         },
         {
             key: 3,
-            title: 'Question 3:',
-            description: 'Description'
+            title: 'Do I have enough blood in my body to donate?',
+            description: ' Yes. The body contains 10 to 12 pints of blood.'
         },
         {
             key: 4,
-            title: 'Question 4:',
-            description: 'Description'
+            title: 'How much blood is taken?',
+            description: 'For a whole blood donation, approximately one pint (which weighs about one pound-up to 500 ml) is collected.'
         },
         {
             key: 5,
-            title: 'Question 5:',
-            description: 'Description'
+            title: ' What type of tests are performed on donated blood?',
+            description: 'Blood is tested for Hepatitis B & C, and certain other infectious diseases to ensure the donor and the patient’s safety.'
         },
         {
             key: 6,
-            title: 'Question 6:',
-            description: 'Description'
+            title: 'How long will my blood be stored for in the blood bank after collection?',
+            description: 'Each unit of whole blood may be separated into several components. However at SKMCH&RC, blood is utilized shortly after collection.'
         },
         {
             key: 7,
-            title: 'Question 7:',
-            description: 'Description'
+            title: 'Will donating blood hurt?',
+            description: 'No more than a pinch in the beginning!  Our skilled phlebotomists make donating blood as painless and comfortable as possible.'
         },
         {
             key: 8,
-            title: 'Question 8:',
-            description: 'Description'
+            title: 'Can I develop infections like hepatitis or HIV (AIDS Virus) when I donate blood?',
+            description: 'No each blood bag and its needle are sterile and disposable.'
         },
 
 
@@ -55,42 +55,42 @@ export default function Support({ navigation }) {
     const hotTopics = [
         {
             key: 1,
-            title: 'Question 1:',
+            title: 'Why Give Blood?',
             description: 'Description'
         },
         {
             key: 2,
-            title: 'Question 2:',
+            title: 'Who Can Give Blood?',
             description: 'Description'
         },
         {
             key: 3,
-            title: 'Question 3:',
+            title: 'The Donation Process',
             description: 'Description'
         },
         {
             key: 4,
-            title: 'Question 4:',
+            title: 'Where To Donate?',
             description: 'Description'
         },
         {
             key: 5,
-            title: 'Question 5:',
+            title: 'How often can I donate?',
             description: 'Description'
         },
         {
             key: 6,
-            title: 'Question 6:',
+            title: 'Will donating blood hurt?',
             description: 'Description'
         },
         {
             key: 7,
-            title: 'Question 7:',
+            title: 'What should I eat after donation?',
             description: 'Description'
         },
         {
             key: 8,
-            title: 'Question 8:',
+            title: ' Can I smoke after donation?',
             description: 'Description'
         },
 
@@ -122,10 +122,12 @@ export default function Support({ navigation }) {
                         keyExtractor={item => item.key}
                         renderItem={({ item }) => (
                             <View style={styles.opacity}>
-                                <View style={styles.headingbox}>
-                                    <TouchableOpacity >
-                                        <Text style={styles.title}>{item.title}</Text>
-                                    </TouchableOpacity>
+                                <View style={styles.title}>
+                                    <View style={styles.sidhu}>
+                                        <TouchableOpacity >
+                                            <Text style ={styles.textss} >{item.title}</Text>
+                                        </TouchableOpacity>
+                                    </View>
                                     <View>
                                         <Text>{item.description}</Text>
                                     </View>
@@ -183,6 +185,17 @@ const styles = StyleSheet.create({
         alignItems: "stretch",
         justifyContent: 'center',
     },
+    textss:{
+        fontSize:14,
+        color:'red',
+        fontWeight:'bold',
+        marginBottom:10,
+        // borderBottomWidth:1,
+        // borderColor:'black',
+
+
+    },
+    
     buttons: {
         backgroundColor: 'red',
         width: 200,
@@ -231,8 +244,8 @@ const styles = StyleSheet.create({
     },
     topics: {
         fontSize: 20,
-        color: 'black',
-        // backgroundColor: 'red',
+        color: 'white',
+        backgroundColor: 'red',
         marginTop: 15,
         marginRight: 10,
         padding: 8,

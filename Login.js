@@ -2,14 +2,46 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ToastAndroid } from 'react-native';
 import React, { useState } from "react";
 import Icon from "react-native-vector-icons/AntDesign";
-import Pass from "react-native-vector-icons/MaterialCommunityIcons"
-import Signup from './Signup';
+import Pass from "react-native-vector-icons/MaterialCommunityIcons";
 
 // const Stack = createStackNavigator();
 // React Screen navigator code end
 
 export default function Login(props) {
 
+  // const Create = () => {
+  //   // MARK: Creating New Doc in Firebase
+  //   // Before that enable Firebase in Firebase Console
+  //   const myDoc = doc(db, "MyCollection", "MyDocument")
+
+  //   // Your Document Goes Here
+  //   const docData = {
+  //     "name": "Salman",
+  //     "bio": "Donor"
+  //   }
+
+  //   setDoc(myDoc, docData)
+  //     // Handling Promises
+  //     .then(() => {
+  //       // MARK: Success
+  //       alert("Document Created!")
+  //     })
+  //     .catch((error) => {
+  //       // MARK: Failure
+  //       alert(error.message)
+  //     })
+  // }
+
+
+  // const read = () => {
+    
+  // }
+  // const update = () => {
+    
+  // }
+  // const del = () => {
+    
+  // }
   const [name, SetName] = useState('');
   const [submitted, SetSubmitted] = useState(false);
   const [password, SetPassword] = useState(false);
@@ -17,7 +49,7 @@ export default function Login(props) {
     const { navigate } = props.navigation;
     if (name.length == 1) {
       SetSubmitted(!submitted);
-      props.navigation.navigate('Signup');
+      props.navigation.navigate('Donors');
     } else {
       // Alert.alert(
       //   'Warning',
