@@ -183,13 +183,6 @@ export default function Login(props) {
   );
 }
 
-
-
-
-// React Screen Navigator Cdoe
-
-// React Screen Navigator Cdoe
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

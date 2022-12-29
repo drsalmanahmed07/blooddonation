@@ -13,93 +13,105 @@ import Pass from "react-native-vector-icons/MaterialCommunityIcons"
 export default function Signup(props) {
 
   const [submitted, SetSubmitted] = useState(false);
-  const [name, SetName] = useState('');
-  const [num, SetNum] = useState('');
-  const [bgrp, SetBgrp] = useState('');
-  const [city, SetCity] = useState('');
-  const [address, SetAddress] = useState('');
-  const [password, SetPassword] = useState('');
-
-  const onPressHandler = () => {
-
-    if (name.length == 1) {
-      ToastAndroid.showWithGravity(
-        'The Name field is required',
-        ToastAndroid.LONG,
-        ToastAndroid.BOTTOM,
-      );
-      props.navigation.navigate("Donors")
-    }
-
-    if (password.length == 0) {
-      ToastAndroid.showWithGravity(
-        'The Password is required',
-        ToastAndroid.LONG,
-        ToastAndroid.BOTTOM,
-      )
-
-    }
-
-    // if(password.length !=0 && password.length <=7)
-    // {
-    //   ToastAndroid.showWithGravity(
-    //     'The Password must consist of atleast 8  characters',
-    //     ToastAndroid.LONG,
-    //     ToastAndroid.BOTTOM,
-    //   )
-    // }
-
-    if (num.length == 0) {
-      ToastAndroid.showWithGravity(
-        'The Number is required',
-        ToastAndroid.LONG,
-        ToastAndroid.BOTTOM,
-      )
-    }
-
-    // if(num.length!=0 && num.length <=10)
-    // {
-    //   ToastAndroid.showWithGravity(
-    //     'The NUmber Must consist of 11 characters',
-    //     ToastAndroid.LONG,
-    //     ToastAndroid.BOTTOM,
-    //   )
-    // }
-
-
-    if (bgrp.length == 0) {
-      ToastAndroid.showWithGravity(
-        'The Blood Group field is required',
-        ToastAndroid.LONG,
-        ToastAndroid.BOTTOM,
-      )
-    }
-    // if(bgrp.length !=0 && bgrp.length<=1)
-    // {
-    //   ToastAndroid.showWithGravity(
-    //     'The Blood Group must be written in this format i.e A+',
-    //     ToastAndroid.LONG,
-    //     ToastAndroid.BOTTOM,
-    //   )
-    // }
-
-    if (city.length == 0) {
-      ToastAndroid.showWithGravity(
-        'The City field is required',
-        ToastAndroid.LONG,
-        ToastAndroid.BOTTOM,
-      )
-    }
-
-    if (address.length == 0) {
-      ToastAndroid.showWithGravity(
-        'The address is required',
-        ToastAndroid.LONG,
-        ToastAndroid.BOTTOM,
-      )
-    }
-
+  const [name, SetName] = useState();
+  const [num, SetNum] = useState();
+  const [bgrp, SetBgrp] = useState();
+  const [city, SetCity] = useState();
+  const [address, SetAddress] = useState();
+  const [password, SetPassword] = useState();
+  const initalState = {
+    name: "",
+    num : "",
+    bgrp:"",
+    
+  };
+  const [state, setState] = useState(initalState);
+  const handleChangeText = (value, name) => {
+    setState({ ...state, [name]: value });
+  };
+  const SaveUser = () => {
+    console.log(state.name);
+    console.log(state.num);
+    console.log(state.bgrp);
   }
+
+  // const onPressHandler = () => {
+
+  //   if (name.length == 1) {
+  //     ToastAndroid.showWithGravity(
+  //       'The Name field is required',
+  //       ToastAndroid.LONG,
+  //       ToastAndroid.BOTTOM,
+  //     );
+  //     props.navigation.navigate("Donors")
+  //   }
+
+  //   if (password.length == 0) {
+  //     ToastAndroid.showWithGravity(
+  //       'The Password is required',
+  //       ToastAndroid.LONG,
+  //       ToastAndroid.BOTTOM,
+  //     )
+
+  //   }
+
+  //   if (password.length != 0 && password.length <= 7) {
+  //     ToastAndroid.showWithGravity(
+  //       'The Password must consist of atleast 8  characters',
+  //       ToastAndroid.LONG,
+  //       ToastAndroid.BOTTOM,
+  //     )
+  //   }
+
+  //   if (num.length == 0) {
+  //     ToastAndroid.showWithGravity(
+  //       'The Number is required',
+  //       ToastAndroid.LONG,
+  //       ToastAndroid.BOTTOM,
+  //     )
+  //   }
+
+  //   if (num.length != 0 && num.length <= 10) {
+  //     ToastAndroid.showWithGravity(
+  //       'The NUmber Must consist of 11 characters',
+  //       ToastAndroid.LONG,
+  //       ToastAndroid.BOTTOM,
+  //     )
+  //   }
+
+
+  //   if (bgrp.length == 0) {
+  //     ToastAndroid.showWithGravity(
+  //       'The Blood Group field is required',
+  //       ToastAndroid.LONG,
+  //       ToastAndroid.BOTTOM,
+  //     )
+  //   }
+  //   if (bgrp.length != 0 && bgrp.length <= 1) {
+  //     ToastAndroid.showWithGravity(
+  //       'The Blood Group must be written in this format i.e A+',
+  //       ToastAndroid.LONG,
+  //       ToastAndroid.BOTTOM,
+  //     )
+  //   }
+
+  //   if (city.length == 0) {
+  //     ToastAndroid.showWithGravity(
+  //       'The City field is required',
+  //       ToastAndroid.LONG,
+  //       ToastAndroid.BOTTOM,
+  //     )
+  //   }
+
+  //   if (address.length == 0) {
+  //     ToastAndroid.showWithGravity(
+  //       'The address is required',
+  //       ToastAndroid.LONG,
+  //       ToastAndroid.BOTTOM,
+  //     )
+  //   }
+
+  // }
 
 
   return (
@@ -117,10 +129,9 @@ export default function Signup(props) {
           <Icon style={styles.iconic} name="user" size={32} color="black" />
           <TextInput
             style={styles.input}
-            // onChangeText={(value) => setName(value)}
-
             placeholder="Full Name"
-            onChangeText={(value) => SetName(value)}
+            value={state.name}
+            onChangeText={(value) => handleChangeText(value, "name")}
             keyboardType="default"
             maxLength={25}
           />
@@ -133,7 +144,9 @@ export default function Signup(props) {
             // onChangeText={(value) => setName(value)}
 
             placeholder="Mobile Number"
-            onChangeText={(value) => SetNum(value)}
+            value={state.num}
+            onChangeText={(value) => handleChangeText(value, "num")}
+
             keyboardType="numeric"
             maxLength={11}
           />
@@ -146,7 +159,8 @@ export default function Signup(props) {
             // onChangeText={(value) => setName(value)}
 
             placeholder="Blood Group i.e A+"
-            onChangeText={(value) => SetBgrp(value)}
+            value={state.bgrp}
+            onChangeText={(value) => handleChangeText(value, "bgrp")}
             keyboardType="default"
             maxLength={2}
           />
@@ -160,7 +174,8 @@ export default function Signup(props) {
             // onChangeText={(value) => setName(value)}
 
             placeholder="City"
-            onChangeText={(value) => SetCity(value)}
+            value={city}
+            onChange={(e) => { SetCity(e.target.value) }}
             keyboardType="default"
             maxLength={30}
           />
@@ -173,7 +188,8 @@ export default function Signup(props) {
             // onChangeText={(value) => setName(value)}
 
             placeholder="Address"
-            onChangeText={(value) => SetAddress(value)}
+            value={address}
+            onChange={(e) => { SetAddress(e.target.value) }}
             keyboardType="default"
             maxLength={50}
           />
@@ -185,7 +201,8 @@ export default function Signup(props) {
             // onChangeText={(value) => setName(value)}
 
             placeholder="Password"
-            onChangeText={(value) => SetPassword(value)}
+            value={password}
+            onChange={(e) => { SetPassword(e.target.value) }}
             keyboardType="default"
             maxLength={20}
           />
@@ -196,9 +213,11 @@ export default function Signup(props) {
 
       <View style={styles.view3}>
         <TouchableOpacity style={styles.buttons}
-          onPress={onPressHandler}
+        onPress={SaveUser}
+          // onPress={onPressHandler}
         >
           <Text style={styles.btntxtcolor}>Register</Text>
+          
         </TouchableOpacity>
       </View>
     </View>

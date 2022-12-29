@@ -56,6 +56,21 @@ export function DrawerContent(props) {
                     </View>
 
                     <Drawer.Section style={styles.DrawerItem}>
+
+                    <DrawerItem
+                            icon={({ color, size }) => (
+                                <Icon
+                                    name="home-outline"
+                                    color={color}
+                                    size={size}
+                                />
+
+                                
+                            )}
+                            label="Signup"
+                            onPress={() => { props.navigation.navigate("Signup") }}
+                        />
+
                         <DrawerItem
                             icon={({ color, size }) => (
                                 <Icon
@@ -63,6 +78,8 @@ export function DrawerContent(props) {
                                     color={color}
                                     size={size}
                                 />
+
+                                
                             )}
                             label="Login"
                             onPress={() => { props.navigation.navigate("Login") }}
