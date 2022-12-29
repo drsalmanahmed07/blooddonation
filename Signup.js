@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import axios from "axios";
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ToastAndroid } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -12,106 +13,85 @@ import Pass from "react-native-vector-icons/MaterialCommunityIcons"
 
 export default function Signup(props) {
 
+
+  const initalState = {
+    name: "",
+    num: 0,
+    bgrp: "",
+    city: "",
+    address: "",
+    password: ""
+
+  };
+  const params = JSON.stringify({
+
+    user : 'fguf'
+    
+    
+    });
+    const url = 'http://localhost:3000/users';
   const [submitted, SetSubmitted] = useState(false);
   const [name, SetName] = useState();
   const [num, SetNum] = useState();
+  const [us, setUs] = useState();
   const [bgrp, SetBgrp] = useState();
   const [city, SetCity] = useState();
   const [address, SetAddress] = useState();
   const [password, SetPassword] = useState();
-  const initalState = {
-    name: "",
-    num : "",
-    bgrp:"",
-    
-  };
   const [state, setState] = useState(initalState);
-  const handleChangeText = (value, name) => {
-    setState({ ...state, [name]: value });
-  };
+
   const SaveUser = () => {
     console.log(state.name);
     console.log(state.num);
     console.log(state.bgrp);
+    console.log(state.city);
+    console.log(state.address);
+    console.log(state.password);
+
   }
+  const handleChangeText = (value, name) => {
+    setState({ ...state, [name]: value });
+  };
 
-  // const onPressHandler = () => {
+  const AuthLogin = async () => {
 
-  //   if (name.length == 1) {
-  //     ToastAndroid.showWithGravity(
-  //       'The Name field is required',
-  //       ToastAndroid.LONG,
-  //       ToastAndroid.BOTTOM,
-  //     );
-  //     props.navigation.navigate("Donors")
-  //   }
+    let params2 = {
+      "user":"Muhammad3" ,
+      "fname":"Salman",
+      "lname":"Ahmed",
+      "phone":"030809133",
+      "email":"ahmedsalm32n.9373@gmail.com",
+      "password":"salman07",
+      "address":"HouseNo229",
+      "cnic":"3820001",
+      "bgrp":"B+"
+      }
+    console.log(url);
+    console.log(params);
+    axios({'method' : 'post', 'url' : url, 'data': params2,'headers' : {
+      'Access-Control-Allow-Credentials' : true,
+     'Access-Control-Allow-Origin': '*',
 
-  //   if (password.length == 0) {
-  //     ToastAndroid.showWithGravity(
-  //       'The Password is required',
-  //       ToastAndroid.LONG,
-  //       ToastAndroid.BOTTOM,
-  //     )
+'Access-Control-Allow-Methods': '*',
 
-  //   }
+'Access-Control-Allow-Headers': '*'
+    }
+      })
+      .then(function(response) {
+      
+      console.log(response);
+      
+      })
+      
+      .catch(function(error) {
+      
+      console.log(error);
+      
+      });
+      
+      };
+ 
 
-  //   if (password.length != 0 && password.length <= 7) {
-  //     ToastAndroid.showWithGravity(
-  //       'The Password must consist of atleast 8  characters',
-  //       ToastAndroid.LONG,
-  //       ToastAndroid.BOTTOM,
-  //     )
-  //   }
-
-  //   if (num.length == 0) {
-  //     ToastAndroid.showWithGravity(
-  //       'The Number is required',
-  //       ToastAndroid.LONG,
-  //       ToastAndroid.BOTTOM,
-  //     )
-  //   }
-
-  //   if (num.length != 0 && num.length <= 10) {
-  //     ToastAndroid.showWithGravity(
-  //       'The NUmber Must consist of 11 characters',
-  //       ToastAndroid.LONG,
-  //       ToastAndroid.BOTTOM,
-  //     )
-  //   }
-
-
-  //   if (bgrp.length == 0) {
-  //     ToastAndroid.showWithGravity(
-  //       'The Blood Group field is required',
-  //       ToastAndroid.LONG,
-  //       ToastAndroid.BOTTOM,
-  //     )
-  //   }
-  //   if (bgrp.length != 0 && bgrp.length <= 1) {
-  //     ToastAndroid.showWithGravity(
-  //       'The Blood Group must be written in this format i.e A+',
-  //       ToastAndroid.LONG,
-  //       ToastAndroid.BOTTOM,
-  //     )
-  //   }
-
-  //   if (city.length == 0) {
-  //     ToastAndroid.showWithGravity(
-  //       'The City field is required',
-  //       ToastAndroid.LONG,
-  //       ToastAndroid.BOTTOM,
-  //     )
-  //   }
-
-  //   if (address.length == 0) {
-  //     ToastAndroid.showWithGravity(
-  //       'The address is required',
-  //       ToastAndroid.LONG,
-  //       ToastAndroid.BOTTOM,
-  //     )
-  //   }
-
-  // }
 
 
   return (
@@ -174,8 +154,8 @@ export default function Signup(props) {
             // onChangeText={(value) => setName(value)}
 
             placeholder="City"
-            value={city}
-            onChange={(e) => { SetCity(e.target.value) }}
+            value={state.city}
+            onChangeText={(value) => handleChangeText(value, "city")}
             keyboardType="default"
             maxLength={30}
           />
@@ -188,8 +168,8 @@ export default function Signup(props) {
             // onChangeText={(value) => setName(value)}
 
             placeholder="Address"
-            value={address}
-            onChange={(e) => { SetAddress(e.target.value) }}
+            value={state.address}
+            onChangeText={(value) => handleChangeText(value, "address")}
             keyboardType="default"
             maxLength={50}
           />
@@ -201,8 +181,8 @@ export default function Signup(props) {
             // onChangeText={(value) => setName(value)}
 
             placeholder="Password"
-            value={password}
-            onChange={(e) => { SetPassword(e.target.value) }}
+            value={state.password}
+            onChangeText={(value) => handleChangeText(value, "password")}
             keyboardType="default"
             maxLength={20}
           />
@@ -213,11 +193,13 @@ export default function Signup(props) {
 
       <View style={styles.view3}>
         <TouchableOpacity style={styles.buttons}
-        onPress={SaveUser}
-          // onPress={onPressHandler}
+          onPress={()=>{
+            AuthLogin();
+          }}
+        // onPress={onPressHandler}
         >
           <Text style={styles.btntxtcolor}>Register</Text>
-          
+
         </TouchableOpacity>
       </View>
     </View>
